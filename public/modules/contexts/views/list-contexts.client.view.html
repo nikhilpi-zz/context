@@ -1,0 +1,19 @@
+<section data-ng-controller="ContextsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Contexts</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="context in contexts" data-ng-href="#!/contexts/{{context._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="context.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="context.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="context.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!contexts.$resolved || contexts.length">
+    	No Contexts yet, why don't you <a href="/#!/contexts/create">create one</a>?
+    </div>
+</section>
