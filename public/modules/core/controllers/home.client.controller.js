@@ -6,7 +6,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http',
     $scope.getKeywords = function(text){
       // Simple GET request example :
       console.log('getting keywords');
-      $http.get('/getKeywords', {params: {content: text}}).
+      $http.get('http://knightlab-context.herokuapp.com/getKeywords', {params: {content: text}}).
         success(function(response) {
           console.log(response);
           $scope.keys = response.keywords;
