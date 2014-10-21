@@ -9,8 +9,9 @@ module.exports = function(app) {
 		.get(contexts.list)
 		.post(users.requiresLogin, contexts.create);
 
+	// Contexts Routes
 	app.route('/contexts/:contextId')
-		.get(contexts.read)
+		.get(contexts.read, contexts.getKeywords)
 		.put(users.requiresLogin, contexts.hasAuthorization, contexts.update)
 		.delete(users.requiresLogin, contexts.hasAuthorization, contexts.delete);
 

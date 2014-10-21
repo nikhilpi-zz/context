@@ -8,12 +8,33 @@ var mongoose = require('mongoose'),
 	Context = mongoose.model('Context'),
 	_ = require('lodash');
 
+var AlchemyAPI = require('alchemy-api');
+var alchemy = new AlchemyAPI('2e76bbc542a2cc763bb5f2ffc0728850eb6c5c0d');
+
+/**
+ * getKeywords
+ */
+exports.getKeywords = function(req, res) {
+	console.log('getting keyopwrds');
+	var context = req.context;
+	var text = context.name;
+	console.log(context);
+	var keywords = 'error';
+	alchemy.keywords(text, 'text',function(err, response) {
+  	if (err) throw err;
+  	keywords = response.keywords;
+  	console.log(response.keywords);
+	});
+	res.jsonp(keywords);
+};
+
 /**
  * Create a Context
  */
 exports.create = function(req, res) {
 	var context = new Context(req.body);
 	context.user = req.user;
+	console.log(context);
 
 	context.save(function(err) {
 		if (err) {

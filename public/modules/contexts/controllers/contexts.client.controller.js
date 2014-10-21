@@ -1,8 +1,8 @@
 'use strict';
 
 // Contexts controller
-angular.module('contexts').controller('ContextsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contexts',
-	function($scope, $stateParams, $location, Authentication, Contexts ) {
+angular.module('contexts').controller('ContextsController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Contexts',
+	function($scope, $stateParams, $location, $http, Authentication, Contexts ) {
 		$scope.authentication = Authentication;
 
 		// Create new Context
@@ -20,6 +20,17 @@ angular.module('contexts').controller('ContextsController', ['$scope', '$statePa
 				$scope.name = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		// Update existing Context
+		$scope.getKeywords = function() {
+			var context = $scope.context ;
+			console.log('hello');
+			context.$getKeywords(function(response) {
+				console.log(response);
+			}, function(errorResponse) {
+				console.log(errorResponse);
 			});
 		};
 

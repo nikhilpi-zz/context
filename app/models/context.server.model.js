@@ -16,6 +16,10 @@ var ContextSchema = new Schema({
 		required: 'Please fill Context name',
 		trim: true
 	},
+	keywords: {
+		type: Array,
+		default: []
+	},
 	created: {
 		type: Date,
 		default: Date.now
