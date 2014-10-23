@@ -1,15 +1,15 @@
 <section data-ng-controller="HomeController">
 		<div class="row">
 			<div class="col-md-6">
+				  <form name="myForm">
 						<label class="control-label" for="title">Text</label>
-						<div class="controls">
-							<input name="title" type="text" data-ng-model="text" id="title" class="form-control" placeholder="Title">
-						</div>
-						<button ng-click="getKeywords(text)">Get Keywords</button>
+						<input name="title" type="text" data-ng-model="article.text" id="title" class="form-control" placeholder="Text">
+					</form>
 			</div>
 			<div class="col-md-6">
-				{{keys}}
+				{{article.text}}
 			</div>
 
 		</div>
 </section>
+
