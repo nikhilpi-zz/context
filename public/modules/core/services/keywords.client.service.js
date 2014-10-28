@@ -5,7 +5,7 @@ angular.module('core').factory('Keywords', ['$resource', function($resource) {
 		// ...
 
 		// Public API
-		return $resource('/getKeywords',{}, {
+		return $resource('/api/getKeywords',{}, {
     	
   	});
 	}
