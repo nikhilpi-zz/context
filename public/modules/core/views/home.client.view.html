@@ -1,13 +1,11 @@
 <section data-ng-controller="HomeController">
 		<div class="row">
 			<div class="col-md-6">
-				  <form name="myForm">
-						<label class="control-label" for="title">Text</label>
-						<input name="title" type="text" data-ng-model="article.text" id="title" class="form-control" placeholder="Text">
-					</form>
+				<article-text></article-text>
 			</div>
 			<div class="col-md-6">
 				{{article.text}}
+        <instructions></instructions>
 			</div>
 
 		</div>
