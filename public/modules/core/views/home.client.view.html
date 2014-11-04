@@ -3,12 +3,11 @@
 			<div class="col-md-6">
 				<article-text></article-text>
 			</div>
-			<div class="col-md-6">
-        <instructions></instructions>
+			<div class="col-md-6 animate-switch-container"
+    ng-switch on="state">
+        <instructions class="animate-switch" ng-switch-when="1"></instructions>
+        <keyword-selection class="animate-switch" ng-switch-when="2"></keyword-selection>
 			</div>
-      <div class="col-md-6">
-        <keyword-selection></keyword-selection>
-      </div>
 		</div>
 </section>
 

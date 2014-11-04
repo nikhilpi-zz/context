@@ -7,6 +7,7 @@ angular.module('core').directive('keywordSelection', [
 			restrict: 'E',
 			link: function postLink(scope, element, attrs) {
 				
+        
         scope.resetNewKeyword = function(){
           scope.newKeyword = null;
         };

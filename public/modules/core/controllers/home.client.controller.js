@@ -1,19 +1,24 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Keywords', 'Types',
-	function($scope, Keywords) {
+angular.module('core').controller('HomeController', ['$scope', '$sce', 'Keywords', 'Types',
+	function($scope, $sce, Keywords) {
     $scope.article = {
       text: 'lorem ipsum',
-      keywords: []
+      keywords: [],
+      getKeywords: function(){
+        return this.keywords.map(function(k){return k.text;});
+      }
     };
+
+    $scope.state = '1';
 
     $scope.addKeyword = function(keyword, relevance, selected){
       relevance = relevance || 1;
       selected = selected || false;
       var newKeyword = {};
       newKeyword.text = keyword;
-      newKeyword.relevance = relevance;
+      newKeyword.relevance = parseFloat(relevance);
       newKeyword.selected = selected;
       $scope.article.keywords.push(newKeyword);
     };
@@ -23,19 +28,13 @@ angular.module('core').controller('HomeController', ['$scope', 'Keywords', 'Type
       Keywords.get({content: article.text}, function(res) {
         var keys = res.keywords;
         for (var i=0; i<keys.length; i++){
-          console.log(keys[i]);
-          $scope.addKeyword(keys[i].text, keys[i].relevance);
+          if (parseFloat(keys[i].relevance) > 0.8){
+            $scope.addKeyword(keys[i].text, keys[i].relevance);
+          }
         }
       });
+      $scope.state = '2';
     };
-
-    // $scope.getTypes = function() {
-    //   var article = $scope.article;
-    //   Types.get({keywords: article.keywords}, function(res) {
-    //     console.log(res);
-    //   });
-    // };
-
   
 	}
 

@@ -2,10 +2,9 @@
 	<div class="row">
     <h3>Select Keywords</h3>
   </div>
-  {{article.keywords}}
 
   <div class="form-group row" ng-repeat="key in article.keywords">
-    <div class="checkbox">
+    <div class="checkbox col-sm-12">
       <label>
         <input type="checkbox" name="selected" ng-model="key.selected">{{ key.text }}
       </label>
