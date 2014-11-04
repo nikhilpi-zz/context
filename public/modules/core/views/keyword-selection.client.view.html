@@ -1,3 +1,23 @@
-<section data-ng-controller="HomeController">
-	This is the Keyword selection
+<section class="keyowords container-fluid">
+	<div class="row">
+    <h3>Select Keywords</h3>
+  </div>
+  {{article.keywords}}
+
+  <div class="form-group row" ng-repeat="key in article.keywords">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="selected" ng-model="key.selected">{{ key.text }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 control-label"> New Keyword: </label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="newKeyword" ng-model="newKeyword">
+    </div>
+    <button class='col-sm-2 btn btn-default' ng-click="addKeyword(newKeyword, null, true); resetNewKeyword()">Add</button>
+  </div>
+
 </section>
