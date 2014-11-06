@@ -1,4 +1,4 @@
-<section class="keyowords container-fluid">
+<section class="keywords container-fluid">
 	<div class="row">
     <h3>Select Keywords</h3>
   </div>
@@ -16,7 +16,10 @@
     <div class="col-sm-8">
       <input type="text" class="form-control" name="newKeyword" ng-model="newKeyword">
     </div>
-    <button class='col-sm-2 btn btn-default' ng-click="addKeyword(newKeyword, null, true); resetNewKeyword()">Add</button>
+    <button class='col-sm-2 btn btn-default' ng-click="article.addKeyword(newKeyword, null, true); resetNewKeyword()">Add</button>
   </div>
 
+  <div class="row">
+    <button class='col-sm-2 btn btn-default' ng-click="getTypes()">Next</button>
+  </div>
 </section>
