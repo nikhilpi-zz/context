@@ -3,13 +3,15 @@
 angular.module('core').directive('keywordSelection', [
 	function() {
 		return {
-			template: '<div></div>',
+			templateUrl: 'modules/core/views/keyword-selection.client.view.html',
 			restrict: 'E',
 			link: function postLink(scope, element, attrs) {
-				// Keyword selection directive logic
-				// ...
-
-				element.text('this is the keywordSelection directive');
+				
+        
+        scope.resetNewKeyword = function(){
+          scope.newKeyword = null;
+        };
+        
 			}
 		};
 	}
